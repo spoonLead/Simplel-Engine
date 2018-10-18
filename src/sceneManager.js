@@ -18,7 +18,8 @@ class Scene{
       physicality : physicality,
       layer : layer,
       modelPath : object.modelPath,
-    }
+      states : object.states
+    };
     objectsBuffer.push(bufferObject);
   }
 

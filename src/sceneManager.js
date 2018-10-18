@@ -1,6 +1,6 @@
 class Scene{
   constructor(){
-    this.objects = [];
+    this.objectsBuffer = []; //buffer with all objects in scene
   }
 
   //Add new object based on flatObject to the scene  
@@ -19,14 +19,14 @@ class Scene{
       layer : layer,
       modelPath : object.modelPath,
     }
-    objects.push(bufferObject);
+    objectsBuffer.push(bufferObject);
   }
 
   rmObject(objectName){
     //find object with atribute objectName in scene buffer
-    for(var i = 0; i < this.objects.lenght; i++){
-      if(this.objects[i].objectName == objectName){
-        this.objects.splice(i, 1);
+    for(var i = 0; i < this.objectsBuffer.lenght; i++){
+      if(this.objectsBuffer[i].objectName == objectName){
+        this.objectsBuffer.splice(i, 1);
         return true;
       }
     }

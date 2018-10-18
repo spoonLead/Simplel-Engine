@@ -20,8 +20,14 @@ class Scene{
     objects.push(bufferObject);
   }
 
-  rmObject(){
-    
+  rmObject(objectName){
+    for(var i = 0; i < this.objects.lenght; i++){
+      if(this.objects[i].objectName == objectName){
+        this.objects.splice(i, 1);
+        return true;
+      }
+    }
+    return false;
   }
 
   start(){

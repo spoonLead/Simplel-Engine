@@ -15,18 +15,26 @@ function stepsForShortestRoute(Ax, Ay, Bx, By, step){
   return([stepX, stepY, steps]);
 }
 
-//TODO for more fields in arguments
-function checkObjectField(obect, field){
-  try{
-    for(var obj = 0; obj < objects.length; ++obj){
-      if(!objects[obj].x == undefined && !objects[obj].y == undefined){
-        return false;
-      }
+function checkObjectField(object, field){
+	//If object type = array
+	//If you want to check field in all object of array
+	if((typeof object) == "array"){
+		for(var obj = 0; obj < object.length; obj++){
+			for(var arg = 1; arg < arguments.length; arg++){
+				if(object[obj].arguments[arg] != undefined){
+					return false;
+					console.log(object[obj].arguments[arg]);
+				}
+			}
     }
-  }catch{
-    if(!object.x == undefined && !object.y == undefined){
-      return false;
-    }
-  }
-  return true;
+	}
+	//If object is alone
+	else{
+		for(var arg = 1; arg < arguments.length; arg++){
+			if(object.arguments[arg] != undefined){
+				return false;
+				console.log(object.arguments[arg]);
+			}
+		}
+	}
 }
